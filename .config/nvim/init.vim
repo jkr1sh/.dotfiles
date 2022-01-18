@@ -55,7 +55,6 @@ set noshowcmd
     else
         let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
     endif
-	autocmd VimEnter * NERDTree | wincmd w
 
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
@@ -133,3 +132,6 @@ function! ToggleHiddenAll()
     endif
 endfunction
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
+
+" Autostart NERD_tree
+autocmd VimEnter * NERDTree | wincmd w
