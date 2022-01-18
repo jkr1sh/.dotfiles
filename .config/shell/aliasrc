@@ -1,0 +1,41 @@
+# Verbosity and Commomly used Settings
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	bc="bc -ql" \
+	mkd="mkdir -pv" \
+	rmd="sudo rm -R" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner"
+
+#Colorize commands when possible.
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+
+# Frequently used Commands. Abbreviate them.
+alias \
+	ka="killall" \
+	g="git" \
+	sdn="sudo shutdown -h now" \
+	sdr="sudo reboot" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+        p="sudo pacman" \
+	z="zathura" \
+	vim="nvim" \
+	dots="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME" \
+	hst="history 1 -1 | cut -c 8- | uniq | fzf | tr -d '\n' | xclip -sel c"
+
+# Sys Update Settings
+alias ua-drop-caches='sudo paccache -rk3; yay -Sc --aur --noconfirm'
+alias ua-update-all='export TMPFILE="$(mktemp)"; \
+	sudo true; \
+	rate-mirrors --save=$TMPFILE arch --max-delay=21600 --completion=1 --sort-mirrors-by=score_asc \
+		&& sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
+		&& sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
+		&& ua-drop-caches \
+		&& yay -Syyu --noconfirm'

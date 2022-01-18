@@ -1,0 +1,12 @@
+#!/bin/sh
+
+setbg &
+dwm_bar &
+xcompmgr &
+dunst &
+xset r rate 300 50 &
+sxhkd &
+unclutter &
+mpd &
+remaps &
+exec dwm > /dev/null 2>&1
