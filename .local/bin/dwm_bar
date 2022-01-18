@@ -1,0 +1,38 @@
+#!/bin/env sh
+
+
+while :; do
+
+#	memory="$(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
+
+	time="$(date "+[  %a %d %b ] [  %I:%M %P ]")"
+
+	read -r bat_status </sys/class/power_supply/BAT1/status
+	read -r bat_capacity </sys/class/power_supply/BAT1/capacity
+	if [ "$bat_status" = "Charging" ]; then
+		bat_status=""
+	elif [ "$bat_capacity" -gt 80 ]; then
+		bat_status=""
+	elif [ "$bat_capacity" -gt 60 ]; then
+		bat_status=""
+	elif [ "$bat_capacity" -gt 40 ]; then
+		bat_status=""
+	elif [ "$bat_capacity" -gt 20 ]; then
+		bat_status=""
+	else
+		bat_status=" ❗"
+	fi
+	bat="$bat_status $bat_capacity%"
+
+	vol="$([ "$(pamixer --get-mute)" = "false" ] && printf ' ' || printf ' ')$(pamixer --get-volume)%"
+
+	if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
+		net=""
+	else
+		net=""
+	fi
+
+#	echo "[ $vol ] $time [$net] [ $bat ]"
+
+	xsetroot -name "[ $vol ] [ $net ] $time  [ $bat ]"
+done &
