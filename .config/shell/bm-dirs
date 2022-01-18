@@ -1,6 +1,6 @@
 cac ${XDG_CACHE_HOME:-$HOME/.cache}
 cfg  ${XDG_CONFIG_HOME:-$HOME/.config}
-D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+D   ${XDG_DOWNLOAD_DIR:-$HOME/dl}
 d   ${XDG_DOCUMENTS_DIR:-$HOME/docs}
 dt  ${XDG_DATA_HOME:-$HOME/.local/share}
 src  $HOME/.local/src
