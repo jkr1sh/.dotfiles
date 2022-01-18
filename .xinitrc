@@ -1,1 +1,0 @@
-/home/jkr1sh/.config/x11/xinitrc
