@@ -6,7 +6,7 @@ alias \
 	bc="bc -ql" \
 	mkd="mkdir -pv" \
 	rmd="sudo rm -R" \
-	yt="youtube-dl --add-metadata -i" \
+	yt="youtube-dl --add-metadata -i -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' " \
 	yta="yt -x -f bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner"
 
