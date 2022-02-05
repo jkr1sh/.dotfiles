@@ -133,5 +133,11 @@ function! ToggleHiddenAll()
 endfunction
 nnoremap <leader>h :call ToggleHiddenAll()<CR>
 
+" vim-markdown configuration
+
+set conceallevel=2
+
+
+
 " Autostart NERD_tree
 autocmd VimEnter * NERDTree | wincmd w
