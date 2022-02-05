@@ -1,0 +1,20 @@
+#!/bin/sh
+
+postname=$1
+date=$(date "+%Y-%m-%d-")
+filename="$date"$postname".md"
+
+touch $HOME/code/blog/_posts/$filename
+cd $HOME/code/blog/
+
+tee -a $HOME/code/blog/_posts/$filename << END
+---
+layout: post
+title: $1
+---
+
+$(date "+%H;%M")
+
+END
+
+$EDITOR $HOME/code/blog/_posts/$filename
