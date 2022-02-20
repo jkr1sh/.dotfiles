@@ -11,4 +11,3 @@ pp  ${XDG_PICTURES_DIR:-$HOME/pix}
 sc  $HOME/.local/bin
 src $HOME/.local/src
 vv  ${XDG_VIDEOS_DIR:-$HOME/Videos}
-blg $HOME/code/blog
