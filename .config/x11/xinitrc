@@ -1,0 +1,10 @@
+#!/bin/sh
+
+setbg &
+dwm_bar &
+xcompmgr &
+dunst &
+sxhkd &
+unclutter &
+
+exec dwm > /dev/null 2>&1
